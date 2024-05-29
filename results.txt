@@ -1,0 +1,99 @@
+Name: Kyle Yu
+Email: kyley@bu.edu
+
+puzzles with 5-move optimal solutions
+-------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+random			   10		  5.0		247.3
+BFS			   10		  5.0		47.1
+DFS (depth limit 20)	   10		  16.2		19072.7
+DFS (depth limit 50)	   10		  48.2		49043.0
+Greedy Search		   10		  5.4		70.3
+A*			   10		  5.0		6.5
+
+
+puzzles with 10-move optimal solutions
+-------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+random			   10		  14.2		5520.1
+BFS			   10		  10.0		747.4
+DFS (depth limit 20)	   10		  18.8		24858.0
+DFS (depth limit 50)	   10		  49.2		92287.3
+Greedy Search		   10		  97.6		7422.7
+A*			   10		  10.0		27.3
+
+
+puzzles with 15-move optimal solutions
+-------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+random			   6		  20.0		250394.3
+BFS			   10		  15.0		12672.0
+DFS (depth limit 20)	   10		  17.8		68659.0
+DFS (depth limit 50)	   10		  48.6		111406.0
+Greedy Search		   10		  89.0		1400.0
+A*			   10		  15.0		313.8
+
+
+Short Reflection:
+-----------------
+There was a lot to take away after experimenting with the 5, 10, and 15 optimal solution puzzles. The BFS and A* algorithms proved to me the most consistently reliable methods in solving the puzzles as they both solved each puzzle in the lowest possible moves and in the least possible time (lowest number of states tested). I was surprised by the performance of the BFS method as it is an uninformed method compared to the Greedy Search and A*, which used heuristic values and etc.
+
+Although the algorithm Greedy Search averaged a high number of moves, it was efficient with the number of states that it tested. That leads me to question, how it did not get to the answer quicker as it has the highest average moves in both the 10 and 15 move optimal solution puzzles. The random algorithm was fairly accurate, but consistently took a while to load because of the high average states tested, similar to the DFS algorithm.
+
+
+
+heuristic 2
+-----------
+This heuristic calculates the number of tiles away the misplaced tiles are compared to the target state. h2() iterates through each tile on the board and compares the current position of the tile to its goal position. Using that information, it calculates the distance, which is the sum of the absolute difference between the row and column indices, and finally, sums all the distances together to find the heuristic value.
+
+
+puzzles with 18-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	   0		 n/a		   n/a		 
+Greedy (heuristic h2)	   10		 76.2		   725.7
+
+A* (heuristic h1)	   10		 18.0		   1602.0
+A* (heuristic h2)	   10		 18.0		   239.3
+
+
+puzzles with 21-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	   0		 n/a		   n/a
+Greedy (heuristic h2)	   10		 75.4		   370.7
+
+A* (heuristic h1)	   10		 21.0		   6301.7
+A* (heuristic h2)	   10		 21.0		   482.3
+
+
+puzzles with 24-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	   0		 n/a		   n/a
+Greedy (heuristic h2)	   10		 75.2		   593.3
+
+A* (heuristic h1)	   3		 24.0		   27219.0
+A* (heuristic h2)	   10		 24.0		   1065.5
+
+
+puzzles with 27-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	  0		 n/a		   n/a
+Greedy (heuristic h2)	  10		 90.8		   693.9
+
+A* (heuristic h1)	  0		 n/a		   n/a
+A* (heuristic h2)	  10		 27.0		   5043.0
+
+
+Short Reflection:
+-----------------
+It is clear that the new and improved h2 function using the distance of the tiles from their goal position as the heuristic enhanced our program. As you can see in the tables for A*, the h2 function was more efficient in finding the goal state as the average states tested dramatically decreased from the original h1 function. As for the Greedy Search algorithm, the h1 function was unable to handle the 20+ move optimal solution puzzles as it did not even get one result. However, for the h2 function, we were able to get some results even with low average states tested.
